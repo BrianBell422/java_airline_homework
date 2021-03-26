@@ -13,7 +13,7 @@ public class FlightTest {
 
     @Before
     public void before() {
-        flight = new Flight(PlaneType.BOEING747, 111, "Edinburgh", "Inverness", "12:00");
+        flight = new Flight(PlaneType.WEEPLANE10, 111, "Edinburgh", "Inverness", "12:00");
         passenger = new Passenger("Brian", 1);
         passenger2 = new Passenger("David", 1);
         passenger3 = new Passenger("John", 1);
@@ -24,7 +24,7 @@ public class FlightTest {
 
     @Test
     public void flightHasPlaneType() {
-        assertEquals(PlaneType.BOEING747, flight.getPlaneType());
+        assertEquals(PlaneType.WEEPLANE10, flight.getPlaneType());
     }
 
     @Test
@@ -49,15 +49,25 @@ public class FlightTest {
 
     @Test
     public void numberOfAvaiilableSeats() {
-        assertEquals(200, flight.getAvailableSeats());
+        assertEquals(2, flight.getAvailableSeats());
     }
 
     @Test
     public void numberOfAvailibleSeatsWithPassengers() {
         flight.addPassenger(passenger);
+        assertEquals(1, flight.getAvailableSeats());
+    }
+
+    @Test
+    public void bookPassengerIfSeatAvailable() {
+        assertEquals("Booking confirmed", flight.addPassenger(passenger));
+    }
+
+    @Test
+    public void flightFullIfNoSeats() {
+        flight.addPassenger(passenger);
         flight.addPassenger(passenger2);
-        flight.addPassenger(passenger3);
-        assertEquals(197, flight.getAvailableSeats());
+        assertEquals("Sorry flight full", flight.addPassenger(passenger3));
     }
 
 }

@@ -2,7 +2,7 @@ package plane;
 
 public enum PlaneType {
     BOEING747(200, 20000),
-    WEEPLANE10(10,1000);
+    WEEPLANE10(2,40);
 
     private final int capacity;
     private final int totalWeight;

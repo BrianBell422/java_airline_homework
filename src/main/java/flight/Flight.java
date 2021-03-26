@@ -68,7 +68,13 @@ public class Flight {
         return availableSeats;
     }
 
-    public void addPassenger(Passenger passenger) {
-        this.passengers.add(passenger);
+    public String addPassenger(Passenger passenger) {
+        int availableSeats = getAvailableSeats();
+        if (availableSeats > 0) {
+            this.passengers.add(passenger);
+            return "Booking confirmed";
+        } else {
+            return "Sorry flight full";
+        }
     }
 }
