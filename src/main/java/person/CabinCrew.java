@@ -6,4 +6,8 @@ public class CabinCrew extends Employee{
         super(name, rank);
     }
 
+    public String messageToPassengers(String message) {
+        return message;
+    }
+
 }
