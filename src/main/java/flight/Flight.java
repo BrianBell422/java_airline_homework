@@ -72,6 +72,7 @@ public class Flight {
         int availableSeats = getAvailableSeats();
         if (availableSeats > 0) {
             this.passengers.add(passenger);
+            passenger.setBookedFlightNumber(this.flightNumber);
             return "Booking confirmed";
         } else {
             return "Sorry flight full";

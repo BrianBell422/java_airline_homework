@@ -70,4 +70,10 @@ public class FlightTest {
         assertEquals("Sorry flight full", flight.addPassenger(passenger3));
     }
 
+    @Test
+    public void passengerHasFlightNumber() {
+        flight.addPassenger(passenger);
+        assertEquals(111, passenger.getBookedFlightNumber());
+    }
+
 }
