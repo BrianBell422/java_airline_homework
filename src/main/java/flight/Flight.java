@@ -73,9 +73,14 @@ public class Flight {
         if (availableSeats > 0) {
             this.passengers.add(passenger);
             passenger.setBookedFlightNumber(this.flightNumber);
+            passenger.setBookedSeatNumber(getRandomSeatNumber());
             return "Booking confirmed";
         } else {
             return "Sorry flight full";
         }
+    }
+
+    public int getRandomSeatNumber() {
+        return (int) (Math.random() * (planeType.getCapacity()) + 1);
     }
 }
