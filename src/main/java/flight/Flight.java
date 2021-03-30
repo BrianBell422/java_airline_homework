@@ -39,8 +39,8 @@ public class Flight {
         return cabinCrews;
     }
 
-    public ArrayList<Passenger> getPassengers() {
-        return passengers;
+    public int getPassengers() {
+        return this.passengers.size();
     }
 
     public PlaneType getPlaneType() {
@@ -64,8 +64,7 @@ public class Flight {
     }
 
     public int getAvailableSeats() {
-        int availableSeats = this.planeType.getCapacity() - this.passengers.size();
-        return availableSeats;
+        return (this.planeType.getCapacity() - this.getPassengers());
     }
 
     public String addPassenger(Passenger passenger) {

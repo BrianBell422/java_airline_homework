@@ -29,7 +29,7 @@ public class FlightManager {
     }
 
     public int getBagWeightBookedOnFlight(Flight flight) {
-        weightBookedOnFlight = bagWeightPerPerson(flight) * flight.getPassengers().size();
+        weightBookedOnFlight = bagWeightPerPerson(flight) * flight.getPassengers();
         return weightBookedOnFlight;
     }
 
